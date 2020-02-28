@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact List Manager</title>
+</head>
+<body>
+<div align="center">
+    <h1>Person Manager</h1>
+    <a href="new">Add New Person</a>
+    <br><br>
+    <table border="1" cellpadding="3">
+        <thead>
+            <tr>
+                <!-- Full Name Information -->
+                <th>Id</th>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Patronymic</th>
+                <th>Company</th>
+                <!-- Contact information -->
+                <th>Mobile phone</th>
+                <th>Home phone</th>
+                <th>Work phone</th>
+                <th>Email</th>
+                <th>Skype</th>
+                <!-- Address Information -->
+                <th>Country</th>
+                <th>City</th>
+                <th>Street</th>
+                <th>House</th>
+                <th>Apartment</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="person : ${listPerson}">
+                <!-- Full Name Information -->
+                <td th:text="${person.id}">Person Id</td>
+                <td th:text="${person.name}">Name</td>
+                <td th:text="${person.surname}">Surname</td>
+                <td th:text="${person.patronymic}">Patronymic</td>
+                <td th:text="${person.organization}">Organization</td>
+                <!-- Contact information -->
+                <td th:text="${person.contact.mphone}">Country</td>
+                <td th:text="${person.contact.hphone}">Region</td>
+                <td th:text="${person.contact.wphone}">City</td>
+                <td th:text="${person.contact.email}">District</td>
+                <td th:text="${person.contact.skype}">Street</td>
+                <!-- Address Information -->
+                <td th:text="${person.address.country}">Country</td>
+                <td th:text="${person.address.city}">City</td>
+                <td th:text="${person.address.street}">Street</td>
+                <td th:text="${person.address.house}">House</td>
+                <td th:text="${person.address.apartment}">Apartment</td>
+                <td>
+                    <a th:href="@{'/edit/' + ${person.id}}">Edit</a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a th:href="@{'/delete/' + ${person.id}}">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

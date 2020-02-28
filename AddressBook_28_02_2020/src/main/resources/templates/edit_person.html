@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Person</title>
+</head>
+<body>
+<div align="center">
+    <h1>Edit Person</h1>
+    <br/>
+    <form action="#" th:action="@{/save}" th:object="${person}" method="post">
+        <table border="0" cellpadding="3">
+            <tr>
+                <td>Person Id:</td>
+                <td>
+                    <input type="text" th:field="*{id}" readonly="readonly" />
+                </td>
+            </tr>
+            <tr>
+                <td>Name:</td>
+                <td>
+                    <input type="text" th:field="*{name}" />
+                </td>
+            </tr>
+            <tr>
+                <td>Surname:</td>
+                <td>
+                    <input type="text" th:field="*{surname}" />
+                </td>
+            </tr>
+            <tr>
+                <td>Patronymic:</td>
+                <td>
+                    <input type="text" th:field="*{patronymic}" />
+                </td>
+            </tr>
+            <tr>
+                <td>Organization:</td>
+                <td>
+                    <input type="text" th:field="*{organization}" />
+            <tr>
+                <td colspan="10">
+                    <button type="submit">Save</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>
