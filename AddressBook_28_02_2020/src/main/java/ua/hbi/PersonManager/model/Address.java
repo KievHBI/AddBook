@@ -1,6 +1,8 @@
 package ua.hbi.PersonManager.model;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.Objects;
 
@@ -9,14 +11,26 @@ public class Address {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="id_address")
     private Long idAddress;
+
+    @Column(name="country")
     private String country;
+
+    @Column(name="city")
     private String city;
+
+    @Column(name="street")
     private String street;
+
+    @Column(name="house")
     private String house;
+
+    @Column(name="apartment")
     private String apartment;
 
     @OneToOne(mappedBy = "address")
+    @JsonBackReference
     private Person person;
 
     public Address() {

@@ -11,21 +11,17 @@ import java.util.List;
 public class PersonService {
 
     @Autowired
-    private PersonRepo repo;
+    private PersonRepo personRepo;
 
     public List<Person> listAll() {
-        return repo.findAll();
+        return personRepo.findAll();
     }
 
     public void save(Person person) {
-        repo.save(person);
+        personRepo.save(person);
     }
 
-    public Person get(Long id) {
-        return repo.findById(id).get();
-    }
+    public Person get(Long id) { return personRepo.findById(id).get(); }
 
-    public void delete(Long id) {
-        repo.deleteById(id);
-    }
+    public void delete(Long id) { personRepo.deleteById(id); }
 }

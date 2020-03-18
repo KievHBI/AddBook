@@ -17,7 +17,7 @@ public class AddressService {
         return addressRepo.findAll();
     }
 
-    public void saveAddress(Address address) {
+    public void save(Address address) {
         addressRepo.save(address);
     }
 

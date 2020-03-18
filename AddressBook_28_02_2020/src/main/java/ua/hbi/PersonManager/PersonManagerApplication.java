@@ -15,7 +15,6 @@ public class PersonManagerApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-
 	}
 }
 

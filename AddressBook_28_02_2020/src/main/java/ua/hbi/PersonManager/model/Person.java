@@ -1,6 +1,8 @@
 package ua.hbi.PersonManager.model;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.Objects;
 
@@ -9,18 +11,29 @@ public class Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id")
     private Long id;
+
+    @Column(name="name")
     private String name;
+
+    @Column(name="surname")
     private String surname;
+
+    @Column(name="patronymic")
     private String patronymic;
+
+    @Column(name="organization")
     private String organization;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id", updatable = false)
+    @JsonManagedReference
     private Address address;
 
 
     @OneToOne(cascade = CascadeType.ALL)
+    @JsonManagedReference
     @JoinColumn(name = "contact_id", updatable = false)
     private Contact contact;
 

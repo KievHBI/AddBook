@@ -1,5 +1,7 @@
 package ua.hbi.PersonManager.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.Objects;
 
@@ -8,15 +10,26 @@ public class Contact {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id_contact")
     private Long idContact;
 
+    @Column(name = "mphone")
     private String mphone;
+
+    @Column(name = "hphone")
     private String hphone;
+
+    @Column(name = "wphone")
     private String wphone;
+
+    @Column(name = "email")
     private String email;
+
+    @Column(name = "skype")
     private String skype;
 
     @OneToOne(mappedBy = "contact") //, cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.DETACH, CascadeType.REFRESH})
+    @JsonBackReference
     private Person person;
 
     public Contact() {
