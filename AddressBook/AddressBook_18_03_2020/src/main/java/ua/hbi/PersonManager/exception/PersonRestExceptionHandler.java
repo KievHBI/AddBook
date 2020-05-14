@@ -13,7 +13,7 @@ public class PersonRestExceptionHandler {
     @ExceptionHandler
     public ResponseEntity<PersonErrorResponse> handleException(PersonNotFoundException exc) {
 
-        // create a StudentErrorResponse
+        // create a PersonErrorResponse
         PersonErrorResponse error = new PersonErrorResponse();
 
         error.setStatus(HttpStatus.NOT_FOUND.value());
@@ -30,7 +30,7 @@ public class PersonRestExceptionHandler {
     @ExceptionHandler
     public ResponseEntity<PersonErrorResponse> handleException(Exception exc) {
 
-        // create a StudentErrorResponse
+        // create a PersonErrorResponse
         PersonErrorResponse error = new PersonErrorResponse();
 
         error.setStatus(HttpStatus.BAD_REQUEST.value());
